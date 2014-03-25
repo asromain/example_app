@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe "Static pages" do
 
   # TEST INTEGRATION WITHOUT SELECTOR
@@ -22,8 +23,8 @@ describe "Static pages" do
   end
 
   # TEST INTEGRATION USING SELECTORS
-  describe "All pages with selectors" do 
-    # pour page Home
+  #  pour page Home
+  describe "Home page" do 
     it "should have right title 'Home'" do
       visit '/static_pages/home'
       page.should have_selector('title', :text => "Ruby on Rails Tutorial Example App | Home")
@@ -32,23 +33,25 @@ describe "Static pages" do
       visit '/static_pages/home'
       page.should have_selector('h1', :text => 'Example App')
     end
-    # pour page Help
+  end
+  describe "Help page" do 
     it "should have right title 'Help'" do
       visit '/static_pages/help'
       page.should have_selector('title', :text => "Ruby on Rails Tutorial Example App | Help")
     end
-    it "should have the h1 'Help'" do
-      visit '/static_pages/help'
-      page.should have_selector('h1', :text => 'Help')
+    it "should have the h1 'Example App'" do
+      visit '/static_pages/home'
+      page.should have_selector('h1', :text => 'Example App')
     end
-    # pour page About
-    it "should have right title 'A propos (about)'" do
-      visit '/static_pages/about'
-      page.should have_selector('title', :text => "Ruby on Rails Tutorial Example App | About")
+  end
+  describe "About page" do 
+    it "should have right title 'Home'" do
+      visit '/static_pages/home'
+      page.should have_selector('title', :text => "Ruby on Rails Tutorial Example App | Home")
     end
-    it "should have the h1 'A propos (about)'" do
-      visit '/static_pages/about'
-      page.should have_selector('h1', :text => 'A propos (about)')
+    it "should have the h1 'Example App'" do
+      visit '/static_pages/home'
+      page.should have_selector('h1', :text => 'Example App')
     end
   end
 
