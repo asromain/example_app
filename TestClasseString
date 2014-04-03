@@ -11,3 +11,26 @@ class TestString
 		return tab
 	end
 end
+
+
+
+#######################
+Dernière partie tp
+#######################
+
+Créez 3 hashes person1, person2, et person3, avec nom et prénom associés aux clefs :nom et :prenom
+
+irb(main):001:0> person1 = { :nom => "Dupond", :prenom => "Michael" }
+irb(main):002:0> person2 = { :nom => "Palm", :prenom => "Rom" }
+irb(main):003:0> person3 = { :nom => "Truc", :prenom => "Muche" }
+
+
+Puis créez un hash “params” tel que params[:pere] soit person1, params[:mere] soit person2, et params[:enfant] soit person3. Verifiez que params[:pere][:first] a la bonne valeur.
+
+irb(main):014:0> params[:pere] = person1
+irb(main):015:0> params[:mere] = person2
+irb(main):016:0> params[:enfant] = person3
+
+
+
+
