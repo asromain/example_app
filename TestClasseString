@@ -1,0 +1,13 @@
+class TestString
+
+	# string shuffle et join
+	def string_shuffle(s)
+		s.split('').shuffle.join
+        end
+
+	# string to tab
+	def string_tab_shuffle(s)
+		tab = s.split('').shuffle
+		return tab
+	end
+end
