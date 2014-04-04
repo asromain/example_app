@@ -95,7 +95,6 @@ footer {
 }
 footer a {
 	color: #555;
-	padding: 10px;
 	line-height: 25px;
 }
 footer a:hover {
@@ -103,6 +102,10 @@ footer a:hover {
 }
 footer small {
 	float: left;
+	padding-left: 10px;
+}
+footer nav {
+	padding-right: 10px;
 }
 footer ul {
 	float: right;
