@@ -11,6 +11,7 @@
 	</head>
 
 	<body>
+
 		<!-- HEADER -->
 	    <header class="navbar navbar-fixed-top">
 	    	<div class="navbar-inner">
@@ -27,14 +28,15 @@
 	    		</div>	
 	    	</div>
 	    </header>
+
 	    <!-- CONTENEUR (Bootstrap) -->
 	    <div class="container">
-	   		<%= yield %>
+
+	   		<%= yield %>    <!-- Contient notre titre de page dynamique -->
 
 	   		<div class="center hero-unit">
 	   			<h1>Bienvenue sur New App</h1>
-
-	   			<h2>Page d'accueil qui suit le tutoriel <a href="http://railstutorial.org">Ruby on Rails</a>. Ma première application... </h2>
+	   			<h2>Page d'accueil qui suit le tutoriel <a href="http://railstutorial.org">Ruby on Rails</a> </h2> <br/>
 
 	   			<%= link_to "Sign up", "#", class: "btn btn-large btn-primary" %>
 	    </div>
