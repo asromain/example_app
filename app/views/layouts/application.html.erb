@@ -5,8 +5,32 @@
 	    <%= stylesheet_link_tag    "application", :media => "all" %>
 	    <%= javascript_include_tag "application" %>
 	    <%= csrf_meta_tags %>
+	    <!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
 	</head>
+
 	<body>
-	    <%= yield %>
+		<!-- HEADER -->
+	    <header class="navbar navbar-fixed-top">
+	    	<div class="navbar-inner">
+	    		<div class="container">
+	    			<%= link_to "new app", '#', id:"logo" %>        <!-- Un lien sur le LOGO -->
+	    			<nav>
+	    				<ul class="nav pull-right">
+	    					<li><%= link_to "Home",    '#' %></li>  <!-- Un lien vers HOME -->
+	    					<li><%= link_to "Help",    '#' %></li>  <!-- Un lien vers HELP -->
+	    					<li><%= link_to "About",   '#' %></li>  <!-- Un lien vers ABOUT -->
+	    					<li><%= link_to "Sign in", '#' %></li>  <!-- Un lien vers SIGN IN -->
+	    				</ul>
+	    			</nav>
+	    		</div>	
+	    	</div>
+	    </header>
+	    <!-- CONTENEUR -->
+	    <div class="container">
+	   		<%= yield %>
+	    </div>
+
 	</body>
 </html>
