@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'bootstrap-sass', '2.0.4'
+gem 'annotate', '2.5.0', group: :development
 
 
 # Gems used only for assets and not required
