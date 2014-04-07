@@ -1,7 +1,7 @@
 require 'spec_helper'
 include ApplicationHelper
 
-# @ TEST UTILISATION DES EXEMPLES PARTAGES @
+# @ TESTS UTILISATION DES EXEMPLES PARTAGES @
 describe "Static pages" do
 
   subject { page }
@@ -39,7 +39,7 @@ describe "Static pages" do
     let(:page_title) {'Contact'}
     it_should_behave_like "all static pages"
   end
-
+end
 
   # @ VERSION 2, TESTS COMPACTES @
 	# subject { page }
@@ -97,4 +97,3 @@ describe "Static pages" do
   #   end
   # end
 
-end
