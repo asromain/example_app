@@ -53,6 +53,7 @@ describe "Static pages" do
     #it { should have_selector('h1',    text: user.name) }
     it { should have_selector('title', text: user.name) }
   end
+
 end
 
   # @ VERSION 2, TESTS COMPACTES @
