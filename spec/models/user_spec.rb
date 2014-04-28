@@ -105,12 +105,9 @@ describe "User pages" do
     end
     # Mot de passe trop court
     describe "Mot de passe trop court" do
-      before { @user.password = @user.password_confirmation = "a"*5}
+      short = "a" * 5
+      before { @user.password = @user.password_confirmation = short}
       it { should be_invalid }
     end
   end
-
-
-
-
 end
