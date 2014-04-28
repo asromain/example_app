@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   # page new.html.erb
   def new
+  	@title = "S'inscrire"
   end
   
 end
