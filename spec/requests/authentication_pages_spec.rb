@@ -14,6 +14,11 @@ describe "AuthenticationPages" do
 			before { click_button "Se connecter" }
 			it { should have_selector('title', 	text: 'Connexion') } 
 			it { should have_selector('div.alert.alert-error', text: "Invalid") }
+
+			describe "Apres la visite d'une autre page" do
+				before { click_link "Home" }
+				it { should_not have_selector('div.alert.alert-error') }
+			end
 		end
 
 		describe "avec information valide" do
