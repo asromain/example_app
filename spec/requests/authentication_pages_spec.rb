@@ -7,12 +7,12 @@ describe "AuthenticationPages" do
 	describe "signin page" do
 
 		before { visit signin_path }
-		it { should have_selector('h1', 	text: 'Se connecter') }
 
 		describe "avec information invalide" do
 
 			before { click_button "Se connecter" }
 			it { should have_selector('title', 	text: 'Connexion') } 
+			it { should have_selector('h1', 	text: 'Se connecter') }
 			it { should have_selector('div.alert.alert-error', text: "Invalid") }
 
 			describe "Apres la visite d'une autre page" do
@@ -31,7 +31,7 @@ describe "AuthenticationPages" do
 
 			it { should have_selector('title', text: user.name) }
 			it { should have_link('Profile', href: user_path(user)) }
-			it { should have_link('Se deconnecter', href: signout_path) }
+			it { should have_link('Sign out', href: signout_path) }
 			it { should_not have_link('Sign in', href: signin_path) }
 		end
 	end
