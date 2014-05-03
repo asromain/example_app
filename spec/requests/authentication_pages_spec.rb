@@ -29,6 +29,11 @@ describe "AuthenticationPages" do
 				click_button "Se connecter"
 			end
 
+			describe "signout" do
+				before { click_link 'Sign out' }
+				it { should have_link('Sign in') }
+			end
+
 			it { should have_selector('title', text: user.name) }
 			it { should have_link('Profile', href: user_path(user)) }
 			it { should have_link('Sign out', href: signout_path) }
