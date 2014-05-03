@@ -7,10 +7,6 @@ class UsersController < ApplicationController
 
 # page new.html.erb
 	def new
-		@title = "S'inscrire"
-	end
-
-	def new
 		@user = User.new
 	end
 
@@ -29,5 +25,10 @@ class UsersController < ApplicationController
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
+
+# page edit.html.erb
+	def edit
+		@user = User.find(params[:id])
+	end
 
 end
