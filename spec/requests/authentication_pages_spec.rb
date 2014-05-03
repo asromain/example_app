@@ -10,7 +10,7 @@ describe "AuthenticationPages" do
 
 		describe "avec information invalide" do
 
-			before { click_button "Se connecter" }
+			before { click_button "Connexion" }
 			it { should have_selector('title', 	text: 'Connexion') } 
 			it { should have_selector('h1', 	text: 'Se connecter') }
 			it { should have_selector('div.alert.alert-error', text: "Invalid") }
@@ -23,21 +23,18 @@ describe "AuthenticationPages" do
 
 		describe "avec information valide" do
 			let(:user) { FactoryGirl.create(:user) }
-			before do
-				fill_in "Email",    with: user.email
-				fill_in "Password", with: user.password
-				click_button "Se connecter"
-			end
+			before { sign_in user }
 
 			describe "signout" do
-				before { click_link 'Sign out' }
-				it { should have_link('Sign in') }
+				before { click_link 'Deconnexion' }
+				it { should have_link('Connexion') }
 			end
 
 			it { should have_selector('title', text: user.name) }
 			it { should have_link('Profile', href: user_path(user)) }
-			it { should have_link('Sign out', href: signout_path) }
-			it { should_not have_link('Sign in', href: signin_path) }
+			it { should have_link('Settings', href: edit_user_path(user)) }
+			it { should have_link('Deconnexion', href: signout_path) }
+			it { should_not have_link('Connexion', href: signin_path) }
 		end
 	end
 
