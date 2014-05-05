@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'bootstrap-sass', '2.0.4'
 gem 'annotate', '2.5.0', group: :development
 gem 'bcrypt-ruby', '3.0.1'
-
+gem 'faker', '1.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.

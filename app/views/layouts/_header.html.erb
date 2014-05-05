@@ -9,7 +9,7 @@
 				          	<li><%= link_to "Help",  help_path %></li> <!-- Un lien vers HELP -->                
 				          	<li><%= link_to "About", about_path %></li> <!-- Un lien vers ABOUT -->
 				          	<% if signed_in? %>
-				            	<li><%= link_to "Users", '#' %></li>
+				            	<li><%= link_to "Users", users_path %></li>
 				            	<li id="fat-menu" class="dropdown">
 				             	 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				                		Compte <b class="caret"></b>
