@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :signed_in_user, only: [:edit, :update]
+	before_filter :signed_in_user, only: [:index, :edit, :update]
 	before_filter :correct_user,   only: [:edit, :update]
 
 # page show.html.erb
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
 # page users
 	def index
-		@users = User.all
+		@users = User.paginate(page: params[:page])
 	end
 
 # Tout ce qui est apres correspond a la methode private
@@ -60,6 +60,6 @@ class UsersController < ApplicationController
 
 		def correct_user
 			@user = User.find(params[:id])
-			redirect_to(root_path) unless  correct_user?(@user)
+			redirect_to(root_path) unless  current_user?(@user)
 		end
 end

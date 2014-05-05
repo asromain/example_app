@@ -209,7 +209,7 @@ input {
 		padding: 10px 0;
 		border-top: 1px solid $grismedium;
 		&:last-child {
-			border-bottom: 1px solid &grismedium;
+			border-bottom: 1px solid $grismedium;
 		}
 	}
 }

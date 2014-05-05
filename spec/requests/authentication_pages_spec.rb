@@ -74,7 +74,7 @@ describe "AuthenticationPages" do
 
 				describe "apres s'etre connecte" do
 					it "devrait donner la page protegee" do
-						page.should have_selector('title', text: 'Mise a jour du profil')
+						page.should have_selector('title', text: 'Editer')
 					end
 				end
 			end
