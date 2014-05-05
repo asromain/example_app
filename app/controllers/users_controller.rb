@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+	before_filter :signed_in_user, only: [:edit, :update]
+	before_filter :correct_user,   only: [:edit, :update]
+
 # page show.html.erb
 	def show   
 		@user = User.find(params[:id])
@@ -37,9 +40,26 @@ class UsersController < ApplicationController
 		end
 	end
 
+# page users
+	def index
+		@users = User.all
+	end
+
 # Tout ce qui est apres correspond a la methode private
 	private 
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+		end
+
+		def signed_in_user
+			unless signed_in?
+				store_location
+				redirect_to signin_url, notice: "Connectez-vous svp."
+			end
+		end
+
+		def correct_user
+			@user = User.find(params[:id])
+			redirect_to(root_path) unless  correct_user?(@user)
 		end
 end

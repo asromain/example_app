@@ -38,4 +38,60 @@ describe "AuthenticationPages" do
 		end
 	end
 
+	describe "autorisation" do
+
+		describe "pour utilisateurs non connectes" do
+			let(:user) { FactoryGirl.create(:user) }
+
+			describe "dans le controleur user" do
+
+				describe "visite de la page edit" do
+					before { visit edit_user_path(user) }
+					it { should have_selector('title', text: 'Connexion') }
+				end
+
+				describe "envoyer a l'action update" do
+					before { put user_path(user) }
+					specify { response.should redirect_to(signin_path) }
+				end
+
+				describe "visiting user page index" do
+					before { visit users_path }
+					it { should have_selector('title', text: 'Connexion') }
+				end
+			end
+
+			describe "en attente de visiter page protegee" do
+				before do
+					visit edit_user_path(user)
+					fill_in "Email",    with: user.email
+					fill_in "Password", with: user.password
+					click_button "Connexion"
+				end
+
+				describe "apres s'etre connecte" do
+					it "devrait donner la page protegee" do
+						page.should have_selector('title', text: 'Mise a jour du profil')
+					end
+				end
+			end
+		end
+
+		describe "mauvais utilisateurs" do
+			let(:user) { FactoryGirl.create(:user) }
+			let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+			before { sign_in user }
+
+			describe "visite de la page Users#edit" do
+				before { visit edit_user_path(wrong_user) }
+				it { should_not have_selector('title', text: full_title('Mise a jour du profil')) }
+			end
+
+			describe "envoyer un PUT request a Users#update action" do
+				before { put user_path(wrong_user) }
+				specify { response.should redirect_to(root_path) }
+			end
+		end
+
+	end 
 end
