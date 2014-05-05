@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 # page show.html.erb
 	def show   
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.paginate(page: params[:page])
 	end
 
 # page new.html.erb
