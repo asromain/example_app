@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-	before_filter :signed_in_user, only: [:index, :edit, :update]
+	before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
 	before_filter :correct_user,   only: [:edit, :update]
+	before_filter :admin_user,     only: :destroy
 
 # page show.html.erb
 	def show   
@@ -46,6 +47,12 @@ class UsersController < ApplicationController
 		@users = User.paginate(page: params[:page])
 	end
 
+	def destroy
+    	User.find(params[:id]).destroy
+    	flash[:success] = "Utilisateur supprime."
+    	redirect_to users_url
+  	end
+
 # Tout ce qui est apres correspond a la methode private
 	private 
 		def user_params
@@ -56,4 +63,8 @@ class UsersController < ApplicationController
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless  current_user?(@user)
 		end
-end
+
+		def admin_user
+        	redirect_to(root_url) unless current_user.admin?
+    	end
+end	

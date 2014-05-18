@@ -5,10 +5,9 @@ FactoryGirl.define do
 		password "foobar"
 		password_confirmation "foobar"
 
-		# Decommenter quand admin sera fait
-		# factory :admin do
-		# 	  admin true
-		# end
+		factory :admin do
+		 	admin true
+		end
 	end
 
 	factory :micropost do
