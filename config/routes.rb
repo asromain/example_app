@@ -6,7 +6,11 @@ ExampleAppBis::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
   # views/users
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   match '/signup', to: 'users#new'
 
   # views/sessions
